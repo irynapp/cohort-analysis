@@ -24,18 +24,18 @@ The program expects two csv files: customers and orders.
 
 ### Design Choices/Assumptions
 
-* All dates are stored in UTC format, but grouping are handled in a configurable timezone (ex: PDT).
-* Only process registered users. If order.csv contains user that is not found in customers.csv, this user is dropped.
-* Provide list of time zones to choose from.
-* Allow user to specify input and output files.
-* Default number of cohorts for report is 8. Allow user to specify any integer larger then 0. If this number exceeds number of weeks possible
+* All dates are stored in UTC format, but groupings are handled in a configurable timezone (ex: PDT).
+* Processes only registered users. If order.csv contains user that is not found in customers.csv, this user is dropped.
+* Provides list of time zones to choose from.
+* Allows user to specify input and output files.
+* Default number of cohorts for report is 8; allows user to specify any integer > 0. If the number exceeds number of weeks possible
   to produce based on the custsomers.csv data, the later will be used as max cohort number.
-* Cohort ranges calculated based on the max and min dates in customers.csv
-* Number of bucket day ranges (0-6 days, 7-13 days, etc) based on the number of cohort ranges (number of buckets = number of cohorts)
-* All the date related manipulations involved date and time objects (not just date).
+* Cohort ranges are calculated based on the max and min dates in customers.csv
+* Number of bucket day ranges (0-6 days, 7-13 days, etc) is based on the number of cohort ranges (number of buckets = number of cohorts)
+* All the date related manipulations involve date and time objects (not just date).
 * Percent metrics have 2 decimal points - precision is better this way (example: 1.98% instead of 2%)
 
-###TESTING
+###Testing
 
 Tested with Python 2.7
 
@@ -45,7 +45,7 @@ Tested with Python 2.7
 * Cohort number is 0 - failed as expected.
 * Cohort number exceeds number of weeks possible to produce based on the input data - generated report based on the availbale number of weeks from the input data.
 * Cohort number is not specified by user - generated csv report of 8 cohorts.
-* cohort number is 5 - generated csv report of 5 cohorts.
+* Cohort number is 5 - generated csv report of 5 cohorts.
 * Check correctness of UTC date and time convesions to different time zones (US/Eastern, US/Pacific, US/Central, Australia/Melbourne) - passed
 * Verify metric counts for 3 cohorts, 5 cohorts and 8 cohorts - passed (Note: for this purpose I used different code, but when QA code produced by the same
   developer, it is hard to gurantee new aproach to the algorithm)
