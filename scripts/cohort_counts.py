@@ -1,12 +1,3 @@
-"""
-Create process to perform a cohort analysis on the set of customers to help identify changes in ordering behavior based on their signup date. 
-
-For this exercise group the customers into week long (7 days) cohorts and then calculate how many *distinct* customers ordered within 
-X days from their signup date, where X is a multiple of 7. Older cohorts will have more buckets: 0-6 days, 7-13 days, 14-20 days, etc.
-
-The program should read the data from both customers.csv and orders.csv and calculate at least 8 weeks of cohorts.  
-All dates are stored in UTC but grouping should be handled in a configurable timezone (ex: PDT).
-"""
 from __future__ import division
 
 import collections

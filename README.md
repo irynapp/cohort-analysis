@@ -1,6 +1,6 @@
-# Cohort Analysis
+## Cohort Analysis
 
-## Details
+### Details
 
 This process is designed to perform a cohort analysis on a set of users/customers. It helps to identify changes in customer ordering behavior based on their signup date.
 
@@ -8,19 +8,21 @@ This process groups customers into 7 day cohorts and then calculates how many di
 
 The program expects two csv files: customers and orders.
 
-## Expected Input File Format
+### Expected Input File Formats
 
 *Customers File Format:*
+
 1. customer id
 2. sign up date
 
 *Orders File Format:*
+
 1. id
 2. order number
 3. customer id
 4. order date
 
-## Design Choices/Assumptions
+### Design Choices/Assumptions
 
 * All dates are stored in UTC format, but grouping are handled in a configurable timezone (ex: PDT).
 * Only process registered users. If order.csv contains user that is not found in customers.csv, this user is dropped.
@@ -33,11 +35,11 @@ The program expects two csv files: customers and orders.
 * All the date related manipulations involved date and time objects (not just date).
 * Percent metrics have 2 decimal points - precision is better this way (example: 1.98% instead of 2%)
 
-##TESTING
+###TESTING
 
 Tested with Python 2.7
 
-####Test Cases:
+#####Test Cases:
 
 * Read none csv files for inputs - failed in both cases as expected.
 * Cohort number is 0 - failed as expected.
@@ -49,7 +51,7 @@ Tested with Python 2.7
   developer, it is hard to gurantee new aproach to the algorithm)
 
 
-##Usage:
+###Usage:
 
 ```
 		Usage: cohort_counts.py [options] customers_file orders_file
@@ -84,7 +86,7 @@ Usage Example:
 	python cohort_counts.py customers.csv orders.csv -t Australia/Melbourne
 
 ```
-## Output Examples
+### Output Examples
 
 Output examples are provided in output_exampels directory:
 * output.csv
